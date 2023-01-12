@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <title>delUser</title>
+</head>
+<body>
+<nav class="nav nav-pills flex-column flex-sm-row">
+
+  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="/login">用户登录</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/adminlogin">管理员登录</a>
+  <a class="flex-sm-fill text-sm-center nav-link  href="#" onclick="window.close()"> 关闭此页面 </a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/logout">用户登出</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/adduser">添加用户</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/index">主页</a>
+
+</nav>
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title">健康标语</h5>
+    <p class="card-text">饮食多清淡，作息要正常，常保笑口开，健康自然来。</p>
+  </div>
+</div>
+
+<form style="width: 600px;margin:100px auto" method="post">
+  <div class="mb-3">
+    <input type="text"
+           class="form-control"
+           id="exampleInputEmail1"
+           aria-describedby="emailHelp"
+           value={{ username }}
+           name="username" placeholder = 'Username'>
+  </div>
+  <div class="mb-3">
+    <input type="password"
+           class="form-control"
+           id="exampleInputPassword1"
+           value={{ password }}
+           name="password" placeholder = 'Password'>
+  </div>
+  <div class="mb-3">
+  <button type="submit" class="btn btn-primary " style="width: 600px;margin:10px auto">修改</button>
+  </div>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <title>主页</title>
+</head>
+<body>
+
+<nav class="nav nav-pills flex-column flex-sm-row">
+
+  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="/login">用户登录</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/adminlogin">管理员登录</a>
+  <a class="flex-sm-fill text-sm-center nav-link  href="#" onclick="window.close()"> 关闭此页面 </a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/logout">用户登出</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/adduser">添加用户</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/index">主页</a>
+
+</nav>
+
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title">健康标语</h5>
+    <p class="card-text">饮食多清淡，作息要正常，常保笑口开，健康自然来。</p>
+  </div>
+</div>
+登录成功 {{ session }}
+<table class="table" style="width: 600px;margin:100px auto">
+  <tbody>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">用户</th>
+      <th scope="col">密码</th>
+      <th scope="col">时间</th>
+      <th scope="col">操作</th>
+
+
+    </tr>
+    {# jinia2 #}
+    {% for Uu in USER %}
+    <tr>
+      <th scope="row">{{ Uu.id }}</th>
+      <td>{{ Uu.username }}</td>
+      <td>{{ Uu.password }}</td>
+      <td>{{ Uu.initime }}</td>
+      <td><a href="/change?name={{Uu.username}}" > 修改 </a> <a href="/delete?name={{Uu.username}}" > 删除 </a> </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+</body>
+</html>
