@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+</head>
+<body>
+
+    <table class="table" style="width: 1100px ;margin:100px auto">
+  <tbody>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">文件名</th>
+      <th scope="col">上传时间</th>
+      <th scope="col">上传用户</th>
+      <th scope="col">操作</th>
+    </tr>
+
+    {# jinia2 #}
+    {{ filelist }}
+    {#["fileid", "filename", "Uploadtime","userid"]#}
+
+    {% for i in filelist %}
+    <tr>
+      <th scope="row">{{ i.fileid }}</th>
+      <td>{{ i.filename }}</td>
+      <td>{{ i.Uploadtime }}</td>
+      <td>{{ i.userid }}</td>
+      <td><a href="/download/{{i.filename}}" >下载 </a> <a href="/del?name={{i.filename}}" > 删除</a> </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{# enctype设置不对字符编码 #}
+<form action="upload" method="POST" enctype="multipart/form-data" style="width: 800px ;margin:100px auto">
+    <input type="file" name="file" accept=".jpg, .png" />
+    <input type="submit" />
+</form>
+
+</body>
+</html>
