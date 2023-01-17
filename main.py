@@ -56,8 +56,6 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return 'username %r userid %r' % (self.username, self.id)
-
-
 class UPLOAD_LOG(UserMixin, db.Model):
     __tablename__ = 'upload_log'  # 表名
     fileid = db.Column(db.Integer, autoincrement=True, primary_key=True)
